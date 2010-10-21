@@ -105,11 +105,11 @@ L</facebook_class>.
 
 =head2 app_id
 
-The application id you got from your http://www.facebook.com/developers application page.
+The application id you got from your C<< http://www.facebook.com/developers >> application page.
 
 =head2 secret
 
-The application secret you got from your http://www.facebook.com/developers application page.
+The application secret you got from your C<< http://www.facebook.com/developers >> application page.
 
 =head2 facebook_class
 
@@ -146,7 +146,7 @@ Issue Tracker
 
 =head1 AUTHOR
 
-Torsten Raudssus <torsten@raudssus.de> http://www.raudssus.de/
+Torsten Raudssus C<< <torsten@raudssus.de> >> C<< http://www.raudssus.de/ >>
 
 =head1 CONTRIBUTORS
 
@@ -155,7 +155,7 @@ Your name could be here.
 =head1 COPYRIGHT
 
 Copyright (c) 2010 the Facebook L</AUTHOR> and L</CONTRIBUTORS> as
-listed above.
+listed on L<Facebook> and all other packages in this distribution.
 
 =head1 LICENSE
 

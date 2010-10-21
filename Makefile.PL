@@ -7,6 +7,7 @@ license 'perl';
 all_from 'lib/Catalyst/Model/Facebook.pm';
 
 requires 'Catalyst::Runtime' => 5.80;
+requires 'Catalyst::Component::InstancePerContext';
 requires 'Facebook';
 requires 'namespace::autoclean';
 
