@@ -8,7 +8,7 @@ with 'Catalyst::Component::InstancePerContext';
 
 use namespace::autoclean;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 $VERSION = eval $VERSION;
 
 has 'facebook_class' => (
@@ -137,12 +137,12 @@ IRC
 
 Repository
 
-  http://github.com/Getty/p5-catalyt-model-facebook
+  C<< http://github.com/Getty/p5-catalyt-model-facebook >>
   Pull request and additional contributors are welcome
  
 Issue Tracker
 
-  http://github.com/Getty/p5-catalyt-model-facebook/issues
+  C<< http://github.com/Getty/p5-catalyt-model-facebook/issues >>
 
 =head1 AUTHOR
 
