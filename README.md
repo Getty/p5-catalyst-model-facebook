@@ -41,11 +41,11 @@ L</facebook_class>.
 
 ## app_id
 
-The application id you got from your http://www.facebook.com/developers application page.
+The application id you got from your <http://www.facebook.com/developers> application page.
 
 ## secret
 
-The application secret you got from your http://www.facebook.com/developers application page.
+The application secret you got from your <http://www.facebook.com/developers> application page.
 
 ## facebook_class
 
@@ -83,7 +83,7 @@ Issue Tracker
 
 # AUTHOR
 
-Torsten Raudssus <torsten@raudssus.de> http://www.raudssus.de/
+Torsten Raudssus <torsten@raudssus.de> <http://www.raudssus.de/>
 
 # CONTRIBUTORS
 
@@ -92,7 +92,7 @@ Your name could be here.
 # COPYRIGHT
 
 Copyright (c) 2010 the Facebook L</AUTHOR> and L</CONTRIBUTORS> as
-listed above.
+listed on [Facebook](http://search.cpan.org/perldoc?Facebook) and all other packages in this distribution.
 
 # LICENSE
 
