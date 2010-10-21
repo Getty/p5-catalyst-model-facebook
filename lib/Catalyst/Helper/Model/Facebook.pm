@@ -10,7 +10,7 @@ Catalyst::Helper::Model::Facebook - Helper for Facebook models
 
 =head1 SYNOPSIS
 
-  script/myapp_create.pl model MyModel Facebook app_id secret
+  script/myapp_create.pl model MyModel Facebook app_id secret [facebook_class] [facebook_cookie_class]
 
 =head1 DESCRIPTION
 
@@ -31,11 +31,13 @@ Makes tests.
 =cut
 
 sub mk_compclass {
-    my ( $self, $helper, $app_id, $secret ) = @_;
+    my ( $self, $helper, $app_id, $secret, $facebook_class, $facebook_cookie_class ) = @_;
 
 	my %args = (
 		app_id => $app_id,
 		secret => $secret,
+		facebook_class => $facebook_class,
+		facebook_cookie_class => $facebook_cookie_class,
 	);
 	
     $helper->render_file('modelclass', $helper->{file}, \%args);
@@ -83,6 +85,8 @@ extends 'Catalyst::Model::Facebook';
 __PACKAGE__->config(
 	app_id => '[% app_id %]',
 	secret => '[% secret %]',
+	facebook_class => '[% facebook_class || 'Facebook' %]',
+	facebook_cookie_class => '[% facebook_cookie_class || 'Facebook::Cookie' %]',
 );
 
 =head1 NAME
