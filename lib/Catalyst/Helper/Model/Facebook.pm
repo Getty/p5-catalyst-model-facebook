@@ -14,7 +14,7 @@ Catalyst::Helper::Model::Facebook - Helper for Facebook models
 
 =head1 DESCRIPTION
 
-Helper for the L<Catalyst> Facebook model.
+Helper for the L<Catalyst> L<Facebook> model.
 
 =head1 USAGE
 
@@ -51,22 +51,38 @@ sub mk_comptest {
 
 =pod
 
+=head1 SUPPORT
+
+IRC
+
+  Join #facebook on irc.perl.org.
+
+Repository
+
+  http://github.com/Getty/p5-catalyt-model-facebook
+  Pull request and additional contributors are welcome
+ 
+Issue Tracker
+
+  http://github.com/Getty/p5-catalyt-model-facebook/issues
+
 =head1 AUTHOR
 
-Torsten Raudssus <torsten@raudssus.de>
+Torsten Raudssus <torsten@raudssus.de> L<http://www.raudssus.de/>
 
-=head1 BUGS 
+=head1 CONTRIBUTORS
 
-Please report any bugs or feature requests to #facebook (or Getty directly) at irc.perl.org, or make a pull request
-at http://github.com/Getty/p5-catalyst-model-facebook
+Your name could be here.
 
-=head1 COPYRIGHT & LICENSE 
+=head1 COPYRIGHT
 
-Copyright 2010 Torsten Raudssus, all rights reserved.
+Copyright (c) 2010 the Facebook L</AUTHOR> and L</CONTRIBUTORS> as
+listed on L<Facebook> and all other packages in this distribution.
 
-This library is free software; you can redistribute it and/or modify it under the same terms as 
-Perl itself, either Perl version 5.8.8 or, at your option, any later version of Perl 5 you may 
-have available.
+=head1 LICENSE
+
+This library is free software and may be distributed under the same terms
+as perl itself.
 
 =cut
 
