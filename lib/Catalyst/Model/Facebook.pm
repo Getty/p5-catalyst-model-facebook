@@ -8,7 +8,7 @@ with 'Catalyst::Component::InstancePerContext';
 
 use namespace::autoclean;
 
-our $VERSION = '0.004';
+our $VERSION = '0.003';
 $VERSION = eval $VERSION;
 
 has 'facebook_class' => (
