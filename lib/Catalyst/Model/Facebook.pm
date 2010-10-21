@@ -8,7 +8,7 @@ with 'Catalyst::Component::InstancePerContext';
 
 use namespace::autoclean;
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
 $VERSION = eval $VERSION;
 
 has 'facebook_class' => (
@@ -105,11 +105,11 @@ L</facebook_class>.
 
 =head2 app_id
 
-The application id you got from your C<< http://www.facebook.com/developers >> application page.
+The application id you got from your C<< <http://www.facebook.com/developers> >> application page.
 
 =head2 secret
 
-The application secret you got from your C<< http://www.facebook.com/developers >> application page.
+The application secret you got from your C<< <http://www.facebook.com/developers> >> application page.
 
 =head2 facebook_class
 
@@ -137,16 +137,16 @@ IRC
 
 Repository
 
-  C<< http://github.com/Getty/p5-catalyt-model-facebook >>
+  C<< <http://github.com/Getty/p5-catalyt-model-facebook> >>
   Pull request and additional contributors are welcome
  
 Issue Tracker
 
-  C<< http://github.com/Getty/p5-catalyt-model-facebook/issues >>
+  C<< <http://github.com/Getty/p5-catalyt-model-facebook/issues> >>
 
 =head1 AUTHOR
 
-Torsten Raudssus C<< <torsten@raudssus.de> >> C<< http://www.raudssus.de/ >>
+Torsten Raudssus C<< <torsten@raudssus.de> >> C<< <http://www.raudssus.de/> >>
 
 =head1 CONTRIBUTORS
 
