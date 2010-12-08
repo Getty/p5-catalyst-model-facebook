@@ -1,12 +1,9 @@
 package Catalyst::Helper::Model::Facebook;
+# ABSTRACT: Helper for Facebook models
 use strict;
 use warnings;
 
 =pod
-
-=head1 NAME
-
-Catalyst::Helper::Model::Facebook - Helper for Facebook models
 
 =head1 SYNOPSIS
 
@@ -65,24 +62,6 @@ Repository
 Issue Tracker
 
   http://github.com/Getty/p5-catalyt-model-facebook/issues
-
-=head1 AUTHOR
-
-Torsten Raudssus <torsten@raudssus.de> L<http://www.raudssus.de/>
-
-=head1 CONTRIBUTORS
-
-Your name could be here.
-
-=head1 COPYRIGHT
-
-Copyright (c) 2010 the Facebook L</AUTHOR> and L</CONTRIBUTORS> as
-listed on L<Facebook> and all other packages in this distribution.
-
-=head1 LICENSE
-
-This library is free software and may be distributed under the same terms
-as perl itself.
 
 =cut
 

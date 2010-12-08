@@ -1,4 +1,5 @@
 package Catalyst::Model::Facebook;
+# ABSTRACT: The Catalyst model for the package Facebook
 
 use Moose;
 use Catalyst::Utils;
@@ -7,9 +8,6 @@ extends 'Catalyst::Model';
 with 'Catalyst::Component::InstancePerContext';
 
 use namespace::autoclean;
-
-our $VERSION = '0.003';
-$VERSION = eval $VERSION;
 
 has 'facebook_class' => (
 	is => 'ro',
@@ -39,10 +37,6 @@ has 'secret' => (
     default  => sub { die "we need your app secret" }
 );
 
-sub get_facebook_cookie {
-	my ( $self, $c ) = @_;
-}
-
 sub build_per_context_instance {
 	my ( $self, $c ) = @_;
 	
@@ -56,16 +50,11 @@ sub build_per_context_instance {
 			secret => $self->secret,
 		),
 	);
-	
 }
 
 1;
 
 =encoding utf8
-
-=head1 NAME
-
-Catalyst::Model::Facebook - The Catalyst model for the package Facebook
 
 =head1 SYNOPSIS
 
@@ -143,24 +132,6 @@ Repository
 Issue Tracker
 
   http://github.com/Getty/p5-catalyt-model-facebook/issues
-
-=head1 AUTHOR
-
-Torsten Raudssus <torsten@raudssus.de> L<http://www.raudssus.de/>
-
-=head1 CONTRIBUTORS
-
-Your name could be here.
-
-=head1 COPYRIGHT
-
-Copyright (c) 2010 the Facebook L</AUTHOR> and L</CONTRIBUTORS> as
-listed on L<Facebook> and all other packages in this distribution.
-
-=head1 LICENSE
-
-This library is free software and may be distributed under the same terms
-as perl itself.
 
 =cut
 
