@@ -16,11 +16,11 @@ has 'facebook_class' => (
     default  => sub { 'Facebook' }
 );
 
-has 'facebook_cookie_class' => (
+has 'facebook_signed_class' => (
 	is => 'ro',
     required => 1,
     lazy     => 1,
-    default  => sub { 'Facebook::Cookie' }
+    default  => sub { 'Facebook::Signed' }
 );
 
 has 'app_id' => (
@@ -28,6 +28,13 @@ has 'app_id' => (
     required => 1,
     lazy     => 1,
     default  => sub { die "we need an app id" }
+);
+
+has 'api_key' => (
+	is => 'ro',
+    required => 1,
+    lazy     => 1,
+    default  => sub { die "we need an api key" }
 );
 
 has 'secret' => (
@@ -41,14 +48,22 @@ sub build_per_context_instance {
 	my ( $self, $c ) = @_;
 	
 	Catalyst::Utils::ensure_class_loaded($self->facebook_class);
-	Catalyst::Utils::ensure_class_loaded($self->facebook_cookie_class);
+	Catalyst::Utils::ensure_class_loaded($self->facebook_signed_class);
 
+	my $facebook_data = "";
+
+	if ( $c->req->cookie('fbs_'.$self->app_id) ) {
+		$facebook_data = join('&',$c->req->cookie('fbs_'.$self->app_id)->value);
+		$facebook_data =~ s/^"|"$//g;
+	}
+	
 	return $self->facebook_class->new(
-		cookie => $self->facebook_cookie_class->new(
-			catalyst_request => $c->req,
-			app_id => $self->app_id,
+		signed => $self->facebook_signed_class->new(
+			facebook_data => $facebook_data,
 			secret => $self->secret,
 		),
+		app_id => $self->app_id,
+		api_key => $self->api_key,
 	);
 }
 
@@ -62,10 +77,11 @@ sub build_per_context_instance {
   # Config
   #
   <Model::MyModel>
-    app_id 148266808552034
-    secret 7adde7e516bf42ec914b08c8d075c13d
+    app_id 122038147863143
+	api_key e0dd54ae57bcdf6b3cac784bf80243fd
+    secret 1b010be5853166ad425683e8d753e0af
     facebook_class Facebook
-    facebook_cookie_class Facebook::Cookie
+    facebook_signed_class Facebook::Signed
   </Model::MyModel>
 
   #
@@ -94,21 +110,25 @@ L</facebook_class>.
 
 =head2 app_id
 
-The application id you got from your L<http://www.facebook.com/developers> application page.
+The application id you got from your L<http://www.facebook.com/developers/apps.php> application page.
+
+=head2 api_key
+
+The API key you got from your L<http://www.facebook.com/developers/apps.php> application page.
 
 =head2 secret
 
-The application secret you got from your L<http://www.facebook.com/developers> application page.
+The application secret you got from your L<http://www.facebook.com/developers/apps.php> application page.
 
 =head2 facebook_class
 
 If you want to extend the L<Facebook> class, or want to use an alternative implementation which is compatible, you can set here the
 class that should be used for this adapter.
 
-=head2 facebook_cookie_class
+=head2 facebook_signed_class
 
-With this parameter you can give him a different L<Facebook::Cookie> class which he gives as cookie attribute to the L<Facebook> object
-on construction.
+With this parameter you can give him a different L<Facebook::Signed> class which he uses for parsing the signed values for
+the L<Facebook> object on construction.
 
 =head1 SEE ALSO
 
@@ -116,7 +136,7 @@ L<Catalyst::Helper::Model::Facebook>
 
 L<Facebook>
 
-L<Facebook::Cookie>
+L<Facebook::Signed>
 
 =head1 SUPPORT
 

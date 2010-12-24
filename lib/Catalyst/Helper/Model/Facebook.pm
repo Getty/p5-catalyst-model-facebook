@@ -7,7 +7,7 @@ use warnings;
 
 =head1 SYNOPSIS
 
-  script/myapp_create.pl model MyModel Facebook app_id secret [facebook_class] [facebook_cookie_class]
+  script/myapp_create.pl model MyModel Facebook app_id api_key secret [facebook_class] [facebook_signed_class]
 
 =head1 DESCRIPTION
 
@@ -28,13 +28,14 @@ Makes tests.
 =cut
 
 sub mk_compclass {
-    my ( $self, $helper, $app_id, $secret, $facebook_class, $facebook_cookie_class ) = @_;
+    my ( $self, $helper, $app_id, $api_key, $secret, $facebook_class, $facebook_signed_class ) = @_;
 
 	my %args = (
 		app_id => $app_id,
+		api_key => $api_key,
 		secret => $secret,
 		facebook_class => $facebook_class,
-		facebook_cookie_class => $facebook_cookie_class,
+		facebook_signed_class => $facebook_signed_class,
 	);
 	
     $helper->render_file('modelclass', $helper->{file}, \%args);
@@ -79,9 +80,10 @@ extends 'Catalyst::Model::Facebook';
 
 __PACKAGE__->config(
 	app_id => '[% app_id %]',
+	api_key => '[% api_key %]',
 	secret => '[% secret %]',
 	facebook_class => '[% facebook_class || 'Facebook' %]',
-	facebook_cookie_class => '[% facebook_cookie_class || 'Facebook::Cookie' %]',
+	facebook_signed_class => '[% facebook_signed_class || 'Facebook::Signed' %]',
 );
 
 =head1 NAME
