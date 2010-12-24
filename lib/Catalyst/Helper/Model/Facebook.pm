@@ -5,6 +5,10 @@ use warnings;
 
 =pod
 
+=head1 NAME
+
+  Catalyst::Helper::Model::Facebook - Helper for Facebook models
+
 =head1 SYNOPSIS
 
   script/myapp_create.pl model MyModel Facebook app_id api_key secret [facebook_class] [facebook_signed_class]
@@ -37,6 +41,10 @@ sub mk_compclass {
 		facebook_class => $facebook_class,
 		facebook_signed_class => $facebook_signed_class,
 	);
+
+    my $file = $helper->{file};
+    (my $template = do { local $/; <DATA> }) =~ s/^\s\s//g;
+    $helper->render_file_contents($template, $file);
 	
     $helper->render_file('modelclass', $helper->{file}, \%args);
     return 1;
