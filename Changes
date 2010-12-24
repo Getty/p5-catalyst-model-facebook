@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.006     2010-12-24 06:15:27 Europe/Berlin
 	- API change, consider please reinstalling the model
 	- Requirement of Facebook 0.010
 
