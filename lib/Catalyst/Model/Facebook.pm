@@ -50,21 +50,29 @@ sub build_per_context_instance {
 	Catalyst::Utils::ensure_class_loaded($self->facebook_class);
 	Catalyst::Utils::ensure_class_loaded($self->facebook_signed_class);
 
-	my $facebook_data = "";
-
-	if ( $c->req->cookie('fbs_'.$self->app_id) ) {
-		$facebook_data = join('&',$c->req->cookie('fbs_'.$self->app_id)->value);
+# canvas application
+	if (exists $c->req->params->{'signed_request'}) {
+		return $self->facebook_class->new(
+			signed => $self->facebook_signed_class->new(
+				canvas_param => $c->req->params->{'signed_request'},
+				secret => $self->secret,
+			),
+			app_id => $self->app_id,
+			api_key => $self->api_key,
+		);
+# website application
+	} elsif ($c->req->cookie('fbs_'.$self->app_id)) {
+		my $facebook_data = join('&',$c->req->cookie('fbs_'.$self->app_id)->value);
 		$facebook_data =~ s/^"|"$//g;
+		return $self->facebook_class->new(
+			signed => $self->facebook_signed_class->new(
+				cookie_param => $facebook_data,
+				secret => $self->secret,
+			),
+			app_id => $self->app_id,
+			api_key => $self->api_key,
+		);
 	}
-	
-	return $self->facebook_class->new(
-		signed => $self->facebook_signed_class->new(
-			facebook_data => $facebook_data,
-			secret => $self->secret,
-		),
-		app_id => $self->app_id,
-		api_key => $self->api_key,
-	);
 }
 
 1;
