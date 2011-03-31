@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.101     2011-03-31 00:13:53 America/Chicago
 	- Fix to generate object without signed_request or cookie
 
 0.100     2011-02-11 18:41:04 America/Chicago
