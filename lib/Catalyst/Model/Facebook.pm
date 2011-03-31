@@ -72,7 +72,16 @@ sub build_per_context_instance {
 			app_id => $self->app_id,
 			api_key => $self->api_key,
 		);
+	} else {
+		return $self->facebook_class->new(
+			signed => $self->facebook_signed_class->new(
+				secret => $self->secret,
+			),
+			app_id => $self->app_id,
+			api_key => $self->api_key,
+		);
 	}
+
 }
 
 1;
